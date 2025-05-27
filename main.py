@@ -44,6 +44,11 @@ def main():
                 print("Game over!")
                 exit()
 
+            for shot in shots:
+                if asteroid.collision_check(shot):
+                    asteroid.split()
+                    shot.kill()
+
         pygame.display.flip()
         dt = clock.tick(60)/1000    # This ticks the game at 60 fps, and also saves the delta time (time between loop iterations/frames) in seconds into dt
 
